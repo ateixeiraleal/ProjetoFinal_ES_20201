@@ -2,6 +2,7 @@
 <h2><strong>Developers</strong></h2>
 <ul>
     <li>Anderson Teixeira Leal
+    <li>Leonardo Campelo Gomes dos Santos
     <li>Luccas Aparecido Pedroso de Assis
 </ul>
 <h2><strong>Proposta</strong></h2>
@@ -26,7 +27,7 @@ Nessa ferramenta será possível apadrinhar um animal, de forma virtual, onde es
     </li><br>
     <li>WAMPSERVER 2.5 : Banco de dados</li>
 </ul>
-<h2><strong>Regras de uso do git:</strong></h2>
+<h2><strong>Regras de uso do git</strong></h2>
 <ul>
     <li>Todos os commits devem ser escritos de maneira clara e objetiva, sem enrolações.</li>
     <li>Todos os commits devem conter informações sobre o que foi adicionado/alterado/removido.</li>
@@ -42,4 +43,24 @@ Nessa ferramenta será possível apadrinhar um animal, de forma virtual, onde es
     <li>Todas as inssues devem ser utilizadas e quando uma tarefa estiver sendo executada, sua inssue deve estar na coluna de desenvolvimento (In progress).</li>
     <li>Toda tarefa finalizada deve ser arrastada para coluna done e fechada "Close issue".</li>
     <li>Caso uma tarefa já finalizada prescise de alterações a inssue deve ser reaberta e então utilizada.</li>
+</ul>
+<h2><strong>Definições de pastas</strong></h2>
+<p>A armazenagem de todos os arquivos referente projeto, tais como códigos, digagramas, imagens e documentos variados, deverá seguir as seguinte regras, de forma a facilitar as suas localizações, colaborando assim para que o projeto fique organizado e de fácil compreensão.</p>
+<ul>
+    <li>Os códigos deverão ser armazenados na pasta <u>src</u>, separadamente em suas respetcivas subpastas, conforme já estão subdivididos no Diagrama de Classes da seguinte forma:
+    <ul style="circle">
+        <li>Controller</li>
+        <li>Model</li>
+        <li>View</li>
+        <li>Persistence</li>
+    </ul>
+    <li>Para a armazenagem dos demais documentos deve-se procurar agrupá-los considerando suas relações.</li>
+</ul>
+<h2><strong>.gitignore</strong></h2>
+<p>Neste arquivo deverão ser adiconados todos aqueles arquivos indesejados, os quais sejam necessários que fiquem totalmente invisíveis ao Git. Abaixo segue alguns exemplos de arquivos que dever ser ignorados</p>
+<ul>
+    <li>Arquivos compilados, como .so e .class;</li>
+    <li>Arquivos temporários de build;</li>
+    <li>Arquivos privados locais (como por exemplo, arquivos que guardam dados secretos no container de injeção de dependências);</li>
+    <li>Arquivos pessoais salvos pela IDE;</li>
 </ul>
