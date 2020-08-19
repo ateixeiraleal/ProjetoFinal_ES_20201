@@ -21,6 +21,19 @@ class PessoaJuridicaDAO{
 			echo "Erro no cadastro! <br>" .$conn->error_log(message);
 		}
 	}
-}
 
+	function consultarPJs($conn){
+		$sql = "SELECT cnpj, nome, email, idUsuario FROM usuariopj";
+		$resultado = $conn->query($sql); //executa o comando no BD.
+		return $resultado;
+	}
+
+	// exibe os dados de uma ONG específica.
+	function consultarPJcodigo($idUsuario, $conn){
+		$sql = "SELECT cnpj, nome, email FROM usuariopj WHERE idUsuario=".$idUsuario;
+		$resultado = $conn->query($sql); //executa o comando no BD.
+		return $resultado;
+	}
+}
+	
 ?>

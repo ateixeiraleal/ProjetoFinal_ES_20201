@@ -6,7 +6,7 @@ class PetDAO{
 	// para salvar deve ser passado como parâmentro um pet e uma conexão.
 	function salvar($pet, $conn){
 
-		// inserção dos dados no BD.
+		// string do comando em sql.
 		$sql = "INSERT INTO pet(nome, tipo, sexo, idUsuario) VALUES ('".
 			$pet->getNome()."','".
 			$pet->getTipo()."','".
@@ -19,6 +19,12 @@ class PetDAO{
 		}else {
 			echo "Erro no cadastro! <br>" .$conn->error_log(message);
 		}
+	}
+
+	function consultarPets($conn){
+		$sql = "SELECT codigoPet, nome, tipo, sexo, idUsuario FROM pet";
+		$resultado = $conn->query($sql); //executa o comando no BD.
+		return $resultado;
 	}
 }
 

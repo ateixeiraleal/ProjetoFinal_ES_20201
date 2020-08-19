@@ -4,18 +4,21 @@ h1{
     text-align: center;
     border-radius: 2.5rem;
 }
+
 #cadastro{
     background-color: #380B61;
     color: #FFFFFF;
     text-align: center;
     border-radius: 2.5rem;
 }
+
 .modulo{
     background-color: #FFFF00;
     color: #088A08;
     text-align: center;
     border-radius: 2.5rem;
 }
+
 .btnSubmit{
     width: 40%;
     border-radius: 1rem;
@@ -29,22 +32,42 @@ h1{
     color: blue;
     margin-top: 4%;
 }
+
 .register .nav-tabs .nav-link:hover{
     border: none;
 }
+
 .text-align{ /* Área de cadastro */
     margin-top: -10%;
     margin-bottom: -9%;
     padding: 10%;
     margin-left: 10%;
 }
+
 .form-new{
     margin-right: 22%;
     margin-left: 20%;
-}   
+}  
+
 .register{ /* Área de fundo do funmulário*/
     background: -webkit-linear-gradient(left, #00FF80, #00c6ff);
     margin-top: 3%;
     padding: 2%;
     border-radius: 2.5rem;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  /*border: 1px solid #dddddd;*/
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
 }
