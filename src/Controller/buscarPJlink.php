@@ -1,9 +1,8 @@
 <?php
 include_once '..\Persistence\connection.php';
 include_once '..\Persistence\pessoaJuridicaDAO.php';
-
 	
-	$idUsuario = $_POST['cIdUsuario'];
+	$idUsuario = filter_input(INPUT_GET,'id', FILTER_SANITIZE_NUMBER_INT);
 
 	// instanciando uma conexão e retornando os dados desta conexão.
 	$conexao = new Connection();
@@ -35,9 +34,6 @@ include_once '..\Persistence\pessoaJuridicaDAO.php';
 							<td>" .$registro['nome']. "</td>
 							<td>" .$registro['email']. "</td>
 							<td>
-								<a href='url'>
-									<img id='img_icon' alt='Exibir' src='..\img\icons\icon_view.png'>
-								</a>
 								<a href='url'>
 									<img id='img_icon' alt='Alterar' src='..\img\icons\icon_edit.png'>
 								</a>

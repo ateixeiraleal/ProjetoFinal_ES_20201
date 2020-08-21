@@ -29,23 +29,24 @@ include_once '..\Persistence\petDAO.php';
 						    <th>Sexo</th>
 						    <th>Opções</th>
 						</tr>";
-
+						// retira a # do endereço do diretório.
+						$diretorio = substr("..\img\pets\#", 0, -1);
 						// enquanto houverem linhas para serem processadas pega uma a uma, joga na variável registro e imprima os campos respectivos.
 						while($registro = $resultado->fetch_assoc()){
 							echo "<tr>
-								<td text-align='right'  padding='1px'> <img id='img_pet' src='..\img\pets\pet".$registro['codigoPet'].".jpg'> </td>
+								<td> <img id='img_pet' src='".$diretorio."".$registro['imagem']."'> </td>
 								<td>" .$registro['nome']. "</td>
 								<td>" .$registro['tipo']. "</td>
 								<td>" .$registro['sexo']. "</td>
 								<td>
-									<a href='url'>
-											<img id='img_icon' alt='Exibir' src='..\img\icons\icon_view.png'>
+									<a href='buscarPetLink.php?id=".$registro['codigoPet']."'>
+										<img id='img_icon' alt='Exibir' src='..\img\icons\icon_view.png'>	
 									</a>
 									<a href='url'>
-											<img id='img_icon' alt='Alterar' src='..\img\icons\icon_edit.png'>
+										<img id='img_icon' alt='Alterar' src='..\img\icons\icon_edit.png'>
 									</a>
-									<a href='url'>
-											<img id='img_icon' alt='Exibir' src='..\img\icons\icon_delete.png'>
+									<a href='excluirPet.php?id=".$registro['codigoPet']."'>
+										<img id='img_icon' alt='Excluir' src='..\img\icons\icon_delete.png'>
 									</a>
 								</td>
 							</tr>";

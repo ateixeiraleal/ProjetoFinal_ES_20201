@@ -5,24 +5,24 @@
         <link href="..\CSS\style.css" rel="stylesheet" type="text/css"/>
         <title>Pet For Friend</title>
     </head>
-	
     <body>
-
         <div class="fundoTela">
             <h2 class="titulo">MÓDULO DE CADASTROS</h2>
             <div class="alinhamentoTexto form-new">
                 <h2 class="subtitulo">PET</h2>
-                <form action="..\Controller\cadastrarPet.php" method="POST" name="f1" autocomplete="off">
+                <form action="..\Controller\cadastrarPet.php" method="POST" name="f1" autocomplete="off"
+                    enctype="multipart/form-data">
                     <div class="form-group">
-                        Nome: <input type="text" name="cNome" maxlength="45" size="50"><br>
-                        Espécie: 
-                        <input type="radio" name="cTipo" value="cachorro"> Cachorro
+                        Foto: <input type="file" name="cImagem" required><br>
+                        Nome: <input type="text" name="cNome" maxlength="45" size="50" required><br>
+                        Espécie:
+                        <input type="radio" name="cTipo" value="cachorro"required> Cachorro
                         <input type="radio" name="cTipo" value="gato"> Gato <br>
                         Sexo:
-                        <input type="radio" name="cSexo" value="M"> Macho
+                        <input type="radio" name="cSexo" value="M" required> Macho
                         <input type="radio" name="cSexo" value="F"> Fêmea <br>
                         Código do Usuario: <input type="number" name="cIdUsuario" maxlength="4" size="6">
-                    </div>
+                    </div><br>
                     <input type="submit" name="LGform1" class="btnSubmit" value="ENVIAR" />
                     <input type="reset" class="btnSubmit" value="LIMPAR">
                 </form>

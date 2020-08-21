@@ -3,7 +3,7 @@ include_once '..\Persistence\connection.php';
 include_once '..\Persistence\petDAO.php';
 
 	
-	$codigo = $_POST['cCodigo'];
+	$codigo = filter_input(INPUT_GET,'id', FILTER_SANITIZE_NUMBER_INT);
 
 	// instanciando uma conexão e retornando os dados desta conexão.
 	$conexao = new Connection();
@@ -11,14 +11,11 @@ include_once '..\Persistence\petDAO.php';
 
 	// criando a classe que fará as operações no BD.
 	$petdao = new PetDAO();
-	$resultado = $petdao->consultarPETcodigo($codigo, $conexao);
+	$resultado = $petdao->excluirPETcodigo($codigo, $conexao);
 
 	/* 
 		Fomulário (vídeo: 9min)
 	*/
-
-	$resultado = $petdao->excluirPETcodigo($codigo, $conexao);
-
 	
 	if ($resultado == TRUE) {
 		echo "Registro excluído com sucesso!";

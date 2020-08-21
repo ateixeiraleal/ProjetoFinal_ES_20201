@@ -7,7 +7,8 @@ class PetDAO{
 	function salvar($pet, $conn){
 
 		// string do comando em sql.
-		$sql = "INSERT INTO pet(nome, tipo, sexo, idUsuario) VALUES ('".
+		$sql = "INSERT INTO pet(imagem, nome, tipo, sexo, idUsuario) VALUES ('".
+			$pet->getImagemPet()."','".
 			$pet->getNome()."','".
 			$pet->getTipo()."','".
 			$pet->getSexo()."',".
@@ -22,14 +23,14 @@ class PetDAO{
 	}
 
 	function consultarPets($conn){
-		$sql = "SELECT codigoPet, nome, tipo, sexo, idUsuario FROM pet";
+		$sql = "SELECT * FROM pet";
 		$resultado = $conn->query($sql); //executa o comando no BD.
 		return $resultado;
 	}
 
-	// exibe os dados de uma ONG específica.
+	// exibe os dados de uma pet específico.
 	function consultarPETcodigo($codigo, $conn){
-		$sql = "SELECT codigoPet, nome, tipo, sexo, idUsuario FROM pet WHERE codigoPet=".$codigo;
+		$sql = "SELECT * FROM pet WHERE codigoPet=".$codigo;
 		$resultado = $conn->query($sql); //executa o comando no BD.
 		return $resultado;
 	}

@@ -12,7 +12,6 @@ include_once '..\Persistence\pessoaJuridicaDAO.php';
 
 	// se a quantidade de linhas for maior que zero há dados a serem processados.
 	if($resultado->num_rows > 0){
-		$ong = 1;
 		echo "<html>
 		    <head>
 		        <link href='..\CSS\style.css' rel='stylesheet' type='text/css'/>
@@ -35,14 +34,14 @@ include_once '..\Persistence\pessoaJuridicaDAO.php';
 								<td>" .$registro['nome']. "</td>
 								<td>" .$registro['email']. "</td>
 								<td>
-									<a href='url'>
+									<a href='buscarPJlink.php?id=".$registro['idUsuario']."'>
 										<img id='img_icon' alt='Exibir' src='..\img\icons\icon_view.png'>
 									</a>
-									<a href='url'>
+									<a href='alterarPJ.php?id=".$registro['idUsuario']."'>
 										<img id='img_icon' alt='Alterar' src='..\img\icons\icon_edit.png'>
 									</a>
-									<a href='url'>
-										<img id='img_icon' alt='Exibir' src='..\img\icons\icon_delete.png'>
+									<a href='excluirPJ.php?id=".$registro['idUsuario']."'>
+										<img id='img_icon' alt='Excluir' src='..\img\icons\icon_delete.png'>
 									</a>
 								</td>
 							</tr>";
