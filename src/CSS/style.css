@@ -1,23 +1,43 @@
+
+.fundoTela{
+    background: -webkit-linear-gradient(left, #5C257F, #D697FF);
+    margin-top: 3%;
+    padding: 2%;
+    border-radius: 2.5rem;
+}
+
+.titulo{
+    background-color: #ABD904;
+    color: #021E73;
+    text-align: center;
+    border-radius: 2.5rem;
+}
+
+.subtitulo{
+    background-color: #380B61;
+    color: #FFFFFF;
+    border-radius: 2.5rem;
+    text-align: center; 
+}
+
 h1{
     color: #000000;
     background: -webkit-linear-gradient(right, #00FF80, #00c6ff);
     text-align: center;
     border-radius: 2.5rem;
 }
-
-#cadastro{
-    background-color: #380B61;
-    color: #FFFFFF;
-    text-align: center;
-    border-radius: 2.5rem;
+#img_icon{
+    border: none;
+    width: 35px;
+    height: 35px;
 }
 
-.modulo{
-    background-color: #FFFF00;
-    color: #088A08;
-    text-align: center;
-    border-radius: 2.5rem;
+#img_pet{
+    border: none;
+    width: 60px;
+    height: 60px;
 }
+
 
 .btnSubmit{
     width: 40%;
@@ -33,11 +53,7 @@ h1{
     margin-top: 4%;
 }
 
-.register .nav-tabs .nav-link:hover{
-    border: none;
-}
-
-.text-align{ /* Área de cadastro */
+.alinhamentoTexto{
     margin-top: -10%;
     margin-bottom: -9%;
     padding: 10%;
@@ -47,13 +63,12 @@ h1{
 .form-new{
     margin-right: 22%;
     margin-left: 20%;
-}  
-
-.register{ /* Área de fundo do funmulário*/
-    background: -webkit-linear-gradient(left, #00FF80, #00c6ff);
+}
+.form-group{
+    background: -webkit-linear-gradient(right, #00FF80, #00c6ff);
     margin-top: 3%;
-    padding: 2%;
-    border-radius: 2.5rem;
+    padding: 5%;
+    line-height: 2;
 }
 
 table {

@@ -4,66 +4,24 @@
         <meta charset="UTF-8">
         <link href="..\CSS\style.css" rel="stylesheet" type="text/css"/>
         <title>Pet For Friend</title>
-        <script language="Javascript">
-            function validacaoEmail(field) {
-                usuario = field.value.substring(0, field.value.indexOf("@"));
-                dominio = field.value.substring(field.value.indexOf("@")+ 1, field.value.length);
-                if ((usuario.length >=1) &&
-                    (dominio.length >=3) && 
-                    (usuario.search("@")==-1) && 
-                    (dominio.search("@")==-1) &&
-                    (usuario.search(" ")==-1) && 
-                    (dominio.search(" ")==-1) &&
-                    (dominio.search(".")!=-1) &&      
-                    (dominio.indexOf(".") >=1)&& 
-                    (dominio.lastIndexOf(".") < dominio.length - 1)) {
-                    document.getElementById("msgemail").innerHTML="E-mail válido";
-                    alert("email valido");
-                }
-                else{
-                    document.getElementById("msgemail").innerHTML="<font color='red'>Email inválido </font>";
-                    alert("E-mail invalido");
-                }
-            }
-        </script>
+        <script src="..\Persistence\validarCampos.js"></script>
     </head>
     <body>
-        <div class="container register">
-            <h2 class="modulo">MÓDULO DE CADASTROS</h2>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active text-align form-new border" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <h2 id="cadastro">PESSOA JURÍDICA</h2>
-                            <div class="row register-form">
-                                <div class="col-md-12">
-                                    <form action="..\Controller\cadastrarPJ.php" method="POST" name="f1" autocomplete="off">
-                                        <div class="form-group">
-                                            CNPJ: <input type="text" name="cCNPJ" maxlength="14">
-                                        </div>
-                                        <div class="form-group">
-                                            Razão Social: <input type="text" name="cNome" maxlength="45" size="60">
-                                        </div>
-                                        <div class="form-group">
-                                            E-mail: <input type="text" name="cEmail" onblur="validacaoEmail(f1.cEmail)" maxlength="45" size='60'>
-                                            <div id="msgemail"></div>
-                                        </div>
-                                        <div class="form-group">
-                                            Senha: <input type="password" name="cSenha" maxlength="16" size="60">
-                                        </div>
-                                        <div class="form-group">
-                                            Código do Usuario: <input type="number" name="cIdUsuario" maxlength="4" size="15">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="submit" name="LGform1" class="btnSubmit" value="ENVIAR" />
-                                            <input type="reset" class="btnSubmit" value="LIMPAR">
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+        <div class="fundoTela">
+            <h2 class="titulo">MÓDULO DE CADASTROS</h2>
+            <div class="alinhamentoTexto form-new">
+                <h2 class="subtitulo">PESSOA JURÍDICA</h2>
+                <form action="..\Controller\cadastrarPJ.php" method="POST" name="f1" autocomplete="off">
+                    <div class="form-group">
+                        CNPJ: <input type="text" name="cCNPJ" onblur="validarCNPJ(f1.cCNPJ)" maxlength="18" size ="30"><br> <div id="msgcnpj"></div>
+                        Razão Social: <input type="text" name="cNome" maxlength="45" size="50"><br>
+                        E-mail: <input type="text" name="cEmail" onblur="validacaoEmail(f1.cEmail)" maxlength="45" size='50'> <div id="msgemail"></div>
+                        Senha: <input type="password" name="cSenha" maxlength="16" size="30"><br>
+                        Código do Usuario: <input type="number" name="cIdUsuario" maxlength="4" size="6 ">
                     </div>
-                </div>
+                    <input type="submit" name="LGform1" class="btnSubmit" value="ENVIAR" />
+                    <input type="reset" class="btnSubmit" value="LIMPAR">
+                </form>
             </div>
         </div>
     </body>

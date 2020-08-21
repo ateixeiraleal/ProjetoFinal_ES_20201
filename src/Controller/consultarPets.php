@@ -18,26 +18,36 @@ include_once '..\Persistence\petDAO.php';
 		        <title>Pet For Friend</title>
 		    </head>
 		    <body>
-			    <div class='container register'>
-		            <h2 class='modulo'>MÓDULO DE CONSULTAS</h2>
-		            <h2 id='cadastro'>RELAÇÃO DE PETs</h2>
+			    <div class='fundoTela'>
+		            <h2 class='titulo'>MÓDULO DE CONSULTAS</h2>
+		            <h2 class='subtitulo'>RELAÇÃO DE PETs</h2>
 			    	<table>
 						<tr>
-						    <th>Código</th>
+						    <th>Foto</th>
 						    <th>Nome</th>
 						    <th>Espécie</th>
 						    <th>Sexo</th>
-						    <th>idUsuario</th>
+						    <th>Opções</th>
 						</tr>";
 
 						// enquanto houverem linhas para serem processadas pega uma a uma, joga na variável registro e imprima os campos respectivos.
 						while($registro = $resultado->fetch_assoc()){
 							echo "<tr>
-								<td>" .$registro['codigoPet']. "</td>
+								<td text-align='right'  padding='1px'> <img id='img_pet' src='..\img\pets\pet".$registro['codigoPet'].".jpg'> </td>
 								<td>" .$registro['nome']. "</td>
 								<td>" .$registro['tipo']. "</td>
 								<td>" .$registro['sexo']. "</td>
-								<td>" .$registro['idUsuario']. "</td>
+								<td>
+									<a href='url'>
+											<img id='img_icon' alt='Exibir' src='..\img\icons\icon_view.png'>
+									</a>
+									<a href='url'>
+											<img id='img_icon' alt='Alterar' src='..\img\icons\icon_edit.png'>
+									</a>
+									<a href='url'>
+											<img id='img_icon' alt='Exibir' src='..\img\icons\icon_delete.png'>
+									</a>
+								</td>
 							</tr>";
 						}
 					echo "</table>";

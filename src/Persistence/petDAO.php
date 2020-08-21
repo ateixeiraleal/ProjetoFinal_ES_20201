@@ -15,7 +15,7 @@ class PetDAO{
 
 		// manda a string 'comando sql' para o BD.
 		if($conn->query($sql) == true){
-			echo "Cliente cadastrado com sucesso!";
+			echo "Pet cadastrado com sucesso!";
 		}else {
 			echo "Erro no cadastro! <br>" .$conn->error_log(message);
 		}
@@ -23,6 +23,19 @@ class PetDAO{
 
 	function consultarPets($conn){
 		$sql = "SELECT codigoPet, nome, tipo, sexo, idUsuario FROM pet";
+		$resultado = $conn->query($sql); //executa o comando no BD.
+		return $resultado;
+	}
+
+	// exibe os dados de uma ONG específica.
+	function consultarPETcodigo($codigo, $conn){
+		$sql = "SELECT codigoPet, nome, tipo, sexo, idUsuario FROM pet WHERE codigoPet=".$codigo;
+		$resultado = $conn->query($sql); //executa o comando no BD.
+		return $resultado;
+	}
+
+	function excluirPETcodigo($codigo, $conn){
+		$sql = "DELETE FROM pet WHERE codigoPet=".$codigo;
 		$resultado = $conn->query($sql); //executa o comando no BD.
 		return $resultado;
 	}

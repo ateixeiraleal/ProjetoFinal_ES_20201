@@ -6,42 +6,24 @@
         <title>Pet For Friend</title>
     </head>
     <body>
-        <div class="container register">
-            <h2 class="modulo">MÓDULO DE CADASTROS</h2>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active text-align form-new border" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <h2 id="cadastro">PET</h2>
-                            <div class="row register-form">
-                                <div class="col-md-12">
-                                    <form action="..\Controller\cadastrarPet.php" method="POST" name="f1" autocomplete="off">
-                                        <div class="form-group">
-                                            Nome: <input type="text" name="cNome" maxlength="45" size="60">
-                                        </div>
-                                        <div class="form-group">
-                                            Espécie: 
-                                            <input type="radio" name="cTipo" value="cachorro"> Cachorro
-                                            <input type="radio" name="cTipo" value="gato"> Gato <br>
-                                        </div>
-                                        <div class="form-group">
-                                            Sexo:
-                                            <input type="radio" name="cSexo" value="M"> Macho
-                                            <input type="radio" name="cSexo" value="F"> Fêmea <br>
-                                        </div>
-                                        <div class="form-group">
-                                            Código do Usuario: <input type="number" name="cIdUsuario" maxlength="4" size="15">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="submit" name="LGform1" class="btnSubmit" value="ENVIAR" />
-                                            <input type="reset" class="btnSubmit" value="LIMPAR">
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+        <div class="fundoTela">
+            <h2 class="titulo">MÓDULO DE CADASTROS</h2>
+            <div class="alinhamentoTexto form-new">
+                <h2 class="subtitulo">PET</h2>
+                <form action="..\Controller\cadastrarPet.php" method="POST" name="f1" autocomplete="off">
+                    <div class="form-group">
+                        Nome: <input type="text" name="cNome" maxlength="45" size="50"><br>
+                        Espécie: 
+                        <input type="radio" name="cTipo" value="cachorro"> Cachorro
+                        <input type="radio" name="cTipo" value="gato"> Gato <br>
+                        Sexo:
+                        <input type="radio" name="cSexo" value="M"> Macho
+                        <input type="radio" name="cSexo" value="F"> Fêmea <br>
+                        Código do Usuario: <input type="number" name="cIdUsuario" maxlength="4" size="6">
                     </div>
-                </div>
+                    <input type="submit" name="LGform1" class="btnSubmit" value="ENVIAR" />
+                    <input type="reset" class="btnSubmit" value="LIMPAR">
+                </form>
             </div>
         </div>
     </body>
