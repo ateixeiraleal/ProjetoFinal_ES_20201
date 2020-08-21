@@ -26,6 +26,79 @@ h1{
     text-align: center;
     border-radius: 2.5rem;
 }
+
+
+h6{
+	color: #32CD32;
+    text-align: justify;
+	text-transform: uppercase;
+	font-size: large;
+}
+
+*{margin: 0; padding: 0;}
+
+.menubg{
+	background-color:#8B4513;
+	font-family: arial,helvetica, sans-serif;
+	font-size: 12px;
+	list-style:none;
+	border:1px solid #c0c0c0;
+	float:center;
+	display: flex;
+	justify-content: space-between;
+}
+
+.menubg img{
+	position:center;
+	padding:15px 15px;
+}
+
+.menubg li{
+	position:center;
+	float:center;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+.menubg li a{
+	color:#8B4513; 
+	text-decoration:none; 
+	padding:15px 15px; 
+	display:flex;
+	background-color:#DCDCDC;
+}
+
+.menubg li a:hover{
+	background:#98FB98;
+	color:#8B4513;
+	-moz-box-shadow:0 3px 10px 0 #CCC;
+	-webkit-box-shadow:0 3px 10px 0 #ccc;
+	text-shadow:0px 0px 5px #fff;
+}
+
+
+.menubg li u{
+	padding:15px 25px; 
+	display:flex;
+	position:left;
+}
+
+.menubg li  ul{
+	position:center;
+	background-color:#fff;
+	display:none;
+	list-style:none;
+}
+
+.menubg li:hover ul, .menubg li.over ul{display:block;}
+
+.menu li ul li{
+	border:1px solid #c0c0c0;
+	width:150px;
+	padding: 2px 10px;
+	display: flex;
+}
+
 #img_icon{
     border: none;
     width: 35px;

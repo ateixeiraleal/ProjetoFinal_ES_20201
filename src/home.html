@@ -4,9 +4,10 @@
         <meta charset="UTF-8">
         <link href="CSS\style.css" rel="stylesheet" type="text/css"/>
         <title>Pet For Frien</title>
-    </head>
-	
-		<!-- Incluir outros HTMLs-->
+
+	</head>
+
+	<!-- Incluir outros HTMLs-->
 	<script>
 		function includeHTML() {
   var z, i, elmnt, file, xhttp;
@@ -36,26 +37,20 @@
   }
 }
 	</script>
-
-
-
-    <body>
 	
-			<!-- Menu Visitante Principal-->
-		<div w3-include-html="View\visitanteMenu.html"></div>
+    <body>
+		
+		
+		<!-- Menu Visitante Principal-->
+		<div w3-include-html="View\userMenu.html"></div>
 		<script>includeHTML();</script>
 
 
-        <div class="fundoTela">
-            <h2 class="titulo">PET FOR FRIEND</h2>
-            <a href="View\cadastrarPF.html"><button class="btnSubmit">CADASTRAR PESSOA FÍSICA</button></a>
-            <a href="View\cadastrarPJ.html"><button class="btnSubmit">CADASTRAR PESSOA JURÍDICA</button></a>
-            <a href="View\cadastrarPet.html"><button class="btnSubmit">CADASTRAR PET</button></a>
-            <a href="Controller\consultarPets.php"><button class="btnSubmit">CONSULTAR PETs</button></a>
-            <a href="Controller\consultarPJs.php"><button class="btnSubmit">CONSULTAR ONGs/ABRIGOS</button></a>
-            <a href="View\consultarPJcodigo.html"><button class="btnSubmit">CONSULTAR ONG PELO CÓDIGO</button></a>
-            <a href="View\excluirPetCodigo.html"><button class="btnSubmit">EXCLUIR PET PELO CÓDIGO</button></a>
+        <div class="container register">
+            <h2 class="modulo">PET FOR FRIEND</h2>
         </div>
-        </div>
+		
+		
+		
     </body>
 </html>
