@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -40,10 +42,47 @@
 	
     <body>
 		
-		
-		<!-- Menu Visitante Principal-->
-		<div w3-include-html="View\userMenu.html"></div>
-		<script>includeHTML();</script>
+	<!-- MENU USUÁRIO LOGADO NO SISTEMA -->
+	<nav>
+		<ul class="menubg">
+			<li><img align="center" width="50px" height="50px" src="\Images\pet4friendLogo.png"/></li>
+			<li><u><h6>Olá, Usuário<?php echo $nome_user;?> </h6></u></li>
+			<li><a href="/index.html">SAIR</a></li>
+			<li>&emsp;</li>
+			<li>&emsp;</li>
+			<li>&emsp;</li>
+
+			<li><a href="#">Pets</a>
+				<ul>
+					<li><a href="\View\cadastrarPet.html" target="home_iframe">CADASTRAR PET</a></li>
+					<li><a href="\Controller\consultarPets.php" target="home_iframe">CONSULTAR PETs</a></li>
+					<li><a href="\Controller\alterarPets.php" target="home_iframe">ALTERAR PETs</a></li>
+					<li><a href="\View\excluirPetCodigo.html" target="home_iframe">EXCLUIR PET PELO CÓDIGO</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Ongs e Abrigos</a>
+				<ul>
+					<li><a href="/View/cadastrarPJ.html" target="home_iframe">CADASTRAR ONG/ABRIGOS</a></li>
+					<li><a href="/Controller/consultarPJs.php" target="home_iframe">CONSULTAR ONGs/ABRIGOS</a></li>
+					<li><a href="/View/alterarPJ.html" target="home_iframe">ALTERAR ONG/ABRIGOS</a></li>
+					<li><a href="/Controller/excluirPJ.php" target="home_iframe">EXCLUIR ONG/ABRIGOS</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Parceiros</a></li>
+			<li><a href="#">Doar Pets</a>
+				<ul>
+					<li><a href="/View/cadastrarDoacao.html" target="home_iframe">CADASTRAR DOAÇÃO</a></li>
+					<li><a href="/Controller/consultarDoacao.php" target="home_iframe">CONSULTAR DOAÇÃO</a></li>
+					<li><a href="/View/alterarDoacao.html" target="home_iframe">ALTERAR DOAÇÃO</a></li>
+					<li><a href="/Controller/excluirDoacao.php" target="home_iframe">EXCLUIR DOAÇÃO</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Em Breve</a></li>
+			<li><a href="#">Em Breve</a></li>
+			<li><a href="/home.html">Home</a></li>
+		</ul>
+	</nav>
+	<!-- FIM MENU USUÁRIO LOGADO NO SISTEMA -->
 
 
         <div class="container register">
@@ -51,6 +90,11 @@
         </div>
 		
 		
+	<!-- iFRAME HOME -->	
+	<iframe width="100%" height="1000" style="border:none;" src="" name="home_iframe">
+		Não foi possível carregar a página
+	</iframe>
+	<!-- FIM iFRAME HOME -->
 		
     </body>
 </html>

@@ -34,6 +34,7 @@ h6{
 	text-transform: uppercase;
 	font-size: large;
 }
+/* ----- INICIO MENU PRINCIPAL ---- */
 
 *{margin: 0; padding: 0;}
 
@@ -98,6 +99,11 @@ h6{
 	padding: 2px 10px;
 	display: flex;
 }
+
+/* ----- FIM MENU PRINCIPAL --)-- */
+
+
+
 
 #img_icon{
     border: none;
