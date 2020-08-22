@@ -44,8 +44,8 @@ include_once '..\Persistence\petDAO.php';
 			    			<td></td>
 			    		</tr>
 			    		<tr>
-				    		<td><a href='url'><button class='btnSubmit'>ALTERAR</button></a></td>
-				    		<td><a href='url'><button class='btnSubmit'>EXCLUIR</button></a></td>
+				    		<td><a href='alterarPet.php?id=".$registro['codigoPet']."'><button class='btnSubmit'>ALTERAR</button></a></td>
+				    		<td><a href='confirmarExclusao.php?id=".$registro['codigoPet']."'><button class='btnSubmit'>EXCLUIR</button></a></td>
 				    		<td><a href='url'><button class='btnSubmit'>ADOTAR</button></a></td>
 				    		<td><a href='url'><button class='btnSubmit'>APADRINHAR</button></a></td>
 						</tr>

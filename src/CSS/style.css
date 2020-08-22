@@ -119,17 +119,29 @@ h6{
 
 
 .btnSubmit{
-    width: 40%;
+    width: 200px;
     border-radius: 1rem;
     padding: 1.5%;
-    color: #fff;
-    background-color: #0062cc;
+    color: #ABD904;
+    background-color: #380B61;
     border: none;
     cursor: pointer;
     margin-right: 6%;
-    background-color: white;
-    color: blue;
     margin-top: 4%;
+    text-decoration: none;
+}
+
+.btnCancelar{
+    width: 200px;
+    border-radius: 1rem;
+    padding: 1.5%;
+    color: #380B61;
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+    margin-right: 6%;
+    margin-top: 4%;
+    text-decoration: none;
 }
 
 .alinhamentoTexto{
@@ -156,10 +168,12 @@ table {
   width: 100%;
 }
 
+
 td, th {
   /*border: 1px solid #dddddd;*/
   text-align: center;
   padding: 8px;
+  width: 35px;
 }
 
 tr:nth-child(even) {

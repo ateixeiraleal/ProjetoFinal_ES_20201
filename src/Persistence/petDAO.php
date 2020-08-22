@@ -40,6 +40,17 @@ class PetDAO{
 		$resultado = $conn->query($sql); //executa o comando no BD.
 		return $resultado;
 	}
+
+	function alterarPet($codigo, $pet, $conn){
+		$sql = "UPDATE pet SET 
+			imagem='".$pet->getImagemPet()."', 
+			nome='".$pet->getNome()."', 
+			tipo='".$pet->getTipo()."', 
+			sexo='".$pet->getSexo()."' 
+		WHERE codigoPet=".$codigo;
+		$resultado = $conn->query($sql); //executa o comando no BD.
+		return $resultado;
+	}
 }
 
 ?>

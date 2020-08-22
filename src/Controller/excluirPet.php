@@ -12,13 +12,9 @@ include_once '..\Persistence\petDAO.php';
 	// criando a classe que fará as operações no BD.
 	$petdao = new PetDAO();
 	$resultado = $petdao->excluirPETcodigo($codigo, $conexao);
-
-	/* 
-		Fomulário (vídeo: 9min)
-	*/
 	
 	if ($resultado == TRUE) {
-		echo "Registro excluído com sucesso!";
+		echo "Registro deletado com sucesso!";
 	} else {
 		echo "Erro ao deletar registro: " . $conexao->error;
 	}
