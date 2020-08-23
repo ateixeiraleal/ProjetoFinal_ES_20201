@@ -35,11 +35,13 @@ if($resultado->num_rows > 0){
                         <tr>
                             <td>
                                 <img src='".$diretorio."".$registro['imagem']."' width='200' height='200'><br>
-                                <input type='text' name='cCodigoImagem' value='".$registro['imagem']."' readonly>
+                                <input type='text' name='cCodigoImagem' value='".$registro['imagem']."' hidden>
                             </td>
                             <td>
-                                PET: <input type='text' name='cCodigoPet' maxlength='4' size='5' value='".$registro['codigoPet']."' readonly>
-                                DOADOR: <input type='text' name='cIdUsuario' maxlength='4' size='5' value='".$registro['idUsuario']."' readonly><br><br><br>
+                                Cod. PET: ´".$registro['codigoPet']."´ | 
+                                <input type='text' name='cCodigoPet' maxlength='4' size='5' value='".$registro['codigoPet']."' hidden>
+                                Cod. DOADOR: ´".$registro['idUsuario']."´
+                                <input type='text' name='cIdUsuario' maxlength='4' size='5' value='".$registro['idUsuario']."' hidden><br><br><br>
                                 Foto: <input type='file' name='cImagem'><br><br>
                                 Nome: <input type='text' name='cNome' value='".$registro['nome']."' maxlength='45' size='50'><br><br>";
                                 if($registro['tipo'] === 'cachorro'){

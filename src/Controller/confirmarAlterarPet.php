@@ -4,8 +4,7 @@ include_once '..\Model\pet.php';
 include_once '..\Persistence\petDAO.php';
 
 	// verifica se houve upload de arquivo.
-	if(!empty($_FILES['cImagem'])){
-        echo "Imagem informada!";
+	if(empty($_FILES['cImagem'])){
 		// pega os 4 últimos caracteres do nome do arquivo '.extensao' e já converte para minúsculo.
 		$extensao = strtolower(substr($_FILES['cImagem']['name'], -4));
 		// cria um nome pela data do sistema criptografada. Ideal para não haver nomes de arquivos repetidos.
@@ -16,7 +15,6 @@ include_once '..\Persistence\petDAO.php';
 		// acessa o local temporario do arquivo e enviar para o novo local e já com o novo nome.
         move_uploaded_file($_FILES['cImagem']['tmp_name'], $diretorio.$fileName);
     }else{
-        echo "Imagem NÃO informada";
         // pegando os dados do formulário.
         $fileName  = $_POST['cCodigoImagem'];
     }
