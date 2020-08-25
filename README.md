@@ -2,7 +2,6 @@
 <h2><strong>Developers</strong></h2>
 <ul>
     <li>Anderson Teixeira Leal
-    <li>Leonardo Campelo Gomes dos Santos
     <li>Luccas Aparecido Pedroso de Assis
 </ul>
 <h2><strong>Proposta</strong></h2>
@@ -17,7 +16,7 @@ Nessa ferramenta será possível apadrinhar um animal, de forma virtual, onde es
 <p>ONGs, abrigos, pessoas interessadas em disponibilizar animais para adoção, pessoas que estejam dispostas a oferecer lares temporários para animais, pessoas interessadas em adotar um animal e até mesmo pessoas interessadas em apadrinhar algum animal.</p>
 <h2><strong>Tecnologias utilizadas</strong></h2>
 <ul>
-    <li>TerraER 3.13 : Modelo lógico</li><br>
+    <li>AXURE RP 9</li><br>
     <li>MySQL Workbench 8.0 :
         <ul type="circle">
             <li>Modelo conceitual</li>
@@ -25,7 +24,14 @@ Nessa ferramenta será possível apadrinhar um animal, de forma virtual, onde es
             <li>Script SQL - Adição de dados</li>
         </ul>
     </li><br>
-    <li>WAMPSERVER 2.5 : Banco de dados</li>
+    <li>Xampp Version 7.4.9 : 
+		<ul type="circle">
+			<li>Servidor HTTP Apache Version 2.4</li>
+			<li>Mysql</li>
+			<li>PHP 7.4.9</li>
+			<li>HTML5</li>
+		</ul>
+    </li><br>
 </ul>
 <h2><strong>Regras de uso do git</strong></h2>
 <ul>
