@@ -5,7 +5,7 @@ include_once '..\Persistence\petDAO.php';
 include_once '..\Persistence\pessoaFisicaDAO.php';
 include_once '..\Persistence\pessoaJuridicaDAO.php';
 	
-	$id = filter_input(INPUT_GET,'id', FILTER_SANITIZE_NUMBER_INT);
+    $id = filter_input(INPUT_GET,'id', FILTER_SANITIZE_NUMBER_INT);
 
 	// instanciando uma conexão e retornando os dados desta conexão.
 	$conexao = new Connection();
@@ -27,7 +27,7 @@ include_once '..\Persistence\pessoaJuridicaDAO.php';
 		    <body>
 			    <div class='fundoTela'>
 					<h2 class='titulo'>MÓDULO DE CONSULTAS</h2>
-					<h2 class='subtitulo'> Adoção nº: ".$registro['id']." Data: ".$registro['data']."</h2>
+					<h2 class='subtitulo'>|| Adoção nº: ".$registro['id']." || Data: ".$registro['data']." ||</h2>
 					<table>
 						<tr>
                             <th>Pet</th>

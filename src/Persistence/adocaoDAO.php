@@ -8,7 +8,7 @@ class AdocaoDAO{
 
 		// string do comando em sql.
         $sql = "INSERT INTO adocao(data, pet, doador, adotante) VALUES ('".
-			$adocao->getData()."','".
+			date('Y-m-d')."','".
 			$adocao->getPet()."','".
 			$adocao->getDoador()."','".
 			$adocao->getAdotante()."'
@@ -16,7 +16,7 @@ class AdocaoDAO{
 		// manda a string 'comando sql' para o BD.
 		if($conn->query($sql) == true){
 			echo "Adoção registrada com sucesso! <br>";
-			$sql = "UPDATE pet SET adotante='".$adocao->getAdotante()."' WHERE codigoPet=".$adocao->getPet();
+			$sql = "UPDATE pet SET situacao='indisponível' adotante='".$adocao->getAdotante()."' WHERE codigoPet=".$adocao->getPet();
 
 			if($conn->query($sql) == true){
 				echo "Dados do pet foram atualizado! <br>";
