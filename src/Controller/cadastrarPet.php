@@ -24,14 +24,14 @@ include_once '..\Persistence\petDAO.php';
 		$nome = $_POST['cNome'];
 		$tipo = $_POST['cTipo'];
 		$sexo = $_POST['cSexo'];
-		$idUsuario = $_POST['cIdUsuario'];
+		$doador = $_POST['cDoador'];
 
 		// instanciando uma conexão e retornando os dados desta conexão.
 		$conexao = new Connection();
 		$conexao = $conexao->getConnection();
 
 		// instanciando um pet com os valores recebidos do formulário.
-		$pet = new Pet($fileName, $nome, $tipo, $sexo, $idUsuario);
+		$pet = new Pet($fileName, $nome, $tipo, $sexo, $doador);
 
 		// instancia novo pet e chama a função que irá adicionar os dados do pet.
 		$petdao = new PetDAO();

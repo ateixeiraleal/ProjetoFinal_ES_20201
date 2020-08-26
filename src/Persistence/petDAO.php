@@ -7,18 +7,22 @@ class PetDAO{
 	function salvar($pet, $conn){
 
 		// string do comando em sql.
-		$sql = "INSERT INTO pet(imagem, nome, tipo, sexo, idUsuario) VALUES ('".
+		$sql = "INSERT INTO pet(imagem, nome, tipo, sexo, doador, situacao, adotante, padrinho) VALUES ('".
 			$pet->getImagemPet()."','".
 			$pet->getNome()."','".
 			$pet->getTipo()."','".
-			$pet->getSexo()."',".
-			$pet->getIdUsuario().")";
+			$pet->getSexo()."','".
+			$pet->getDoador()."','".
+			$pet->getSituacao()."','".
+			$pet->getAdotante()."','".
+			$pet->getPadrinho()."'
+		)";
 
 		// manda a string 'comando sql' para o BD.
 		if($conn->query($sql) == true){
 			echo "Pet cadastrado com sucesso!";
 		}else {
-			echo "Erro no cadastro! <br>" .$conn->error_log(message);
+			echo "Erro no cadastro! <br>" .$conn->error;
 		}
 	}
 

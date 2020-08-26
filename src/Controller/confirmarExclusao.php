@@ -38,7 +38,7 @@ if($resultado->num_rows > 0){
                             </td>
                             <td>
                                 PET: ".$codigoPet."
-                                DOADOR: ".$registro['idUsuario']." <br><br><br>
+                                DOADOR: ".$registro['doador']." <br><br><br>
                                 Nome: ".$registro['nome']." <br><br>
                                 Espécie ".$registro['tipo']." <br><br>
                                 Sexo: ".$registro['sexo']." <br><br>

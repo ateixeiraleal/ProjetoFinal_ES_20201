@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 21-Ago-2020 às 23:13
+-- Tempo de geração: 26-Ago-2020 às 02:19
 -- Versão do servidor: 10.4.13-MariaDB
 -- versão do PHP: 7.4.8
 
@@ -24,6 +24,27 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `adocao`
+--
+
+CREATE TABLE `adocao` (
+  `id` int(4) NOT NULL,
+  `data` date NOT NULL,
+  `pet` int(4) NOT NULL,
+  `doador` int(4) NOT NULL,
+  `adotante` int(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `adocao`
+--
+
+INSERT INTO `adocao` (`id`, `data`, `pet`, `doador`, `adotante`) VALUES
+(1, '2020-08-25', 4, 2, 5);
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `pet`
 --
 
@@ -33,23 +54,32 @@ CREATE TABLE `pet` (
   `nome` varchar(45) NOT NULL,
   `tipo` varchar(8) NOT NULL,
   `sexo` char(1) NOT NULL,
-  `idUsuario` int(4) NOT NULL
+  `doador` int(4) NOT NULL,
+  `situacao` varchar(12) NOT NULL,
+  `adotante` int(4) DEFAULT NULL,
+  `padrinho` int(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `pet`
 --
 
-INSERT INTO `pet` (`codigoPet`, `imagem`, `nome`, `tipo`, `sexo`, `idUsuario`) VALUES
-(1, 'b2fdd78711a5ec2602b601cdbd8b8977.jpeg', 'Cremoso', 'gato', 'M', 4),
-(2, 'beccdfa0633eaf85acfb710b23d80121.jpeg', 'Amora', 'cachorro', 'F', 1),
-(3, '861dfde0adb90315e357b917e8ab1f6f.jpg', 'Pluto', 'cachorro', 'M', 3),
-(4, '74595ea78d844f428aac43f909dfe005.jpg', 'Frajola', 'gato', 'M', 2),
-(5, '8fd395f4b55b5625490315b09cd8d075.jpeg', 'Strogonoff', 'gato', 'M', 5),
-(6, 'c9d60054385c7c863c4db90b9cf38540.jpg', 'Tristeza do Zeco', 'cachorro', 'M', 4),
-(7, '71184f97c36dced5ae85256da4662c2f.jpg', 'Felícia', 'gato', 'F', 1),
-(8, '8fe58a284ffd6798432ac51d21381ec2.jpg', 'Amora', 'cachorro', 'F', 3),
-(9, 'f19db309711df8fb0c5e6a3f434bc8f3.jpg', 'Nevasca', 'gato', 'F', 2);
+INSERT INTO `pet` (`codigoPet`, `imagem`, `nome`, `tipo`, `sexo`, `doador`, `situacao`, `adotante`, `padrinho`) VALUES
+(1, '0e84fe9e8829b19f5021c7a24e2bde2c.jpeg', 'Latifa Risca Faca', 'gato', 'F', 3, 'Disponível', 0, 0),
+(2, '71184f97c36dced5ae85256da4662c2f.jpg', 'Felícia Idosa', 'gato', 'F', 5, 'Disponível', 0, 0),
+(3, '550c20f4f8311c08f4a6c11371c3cac9.jpg', 'Drauzio', 'gato', 'M', 4, 'Disponível', 0, 0),
+(4, '861dfde0adb90315e357b917e8ab1f6f.jpg', 'Pluto Labrador', 'cachorro', 'M', 2, 'Disponível', 0, 0),
+(5, '8fd395f4b55b5625490315b09cd8d075.jpeg', 'Felisbino Rolador', 'gato', 'M', 1, 'Disponível', 0, 0),
+(6, '8fe58a284ffd6798432ac51d21381ec2.jpg', 'Amora Faria', 'cachorro', 'F', 3, 'Disponível', 0, 0),
+(7, 'b2fdd78711a5ec2602b601cdbd8b8977.jpeg', 'Frajola Soneca', 'gato', 'M', 5, 'Disponível', 0, 0),
+(8, 'beccdfa0633eaf85acfb710b23d80121.jpeg', 'Catarina Silva', 'cachorro', 'F', 4, 'Disponível', 0, 0),
+(9, '9122f957802e02363b0be7a6249cabc4.jpg', 'Tristeza do Jeca', 'cachorro', 'M', 1, 'Disponível', 0, 0),
+(10, '59fdc772658198b19de77f1426129975.jpg', 'Floco de Neve', 'gato', 'M', 5, 'Disponível', 0, 0),
+(11, '6f21df7988ab713bb2987d43adbf2601.jpeg', 'Mimi Fofuxa', 'gato', 'F', 2, 'Disponível', 0, 0),
+(12, '65d08e693135b883a81f377a70864564.jpeg', 'Belinha Melindrosa', 'cachorro', 'F', 4, 'Disponível', 0, 0),
+(13, 'c4dc72b5c5543334877735a42ced9586.jpg', 'Baronesa Rockfeler', 'cachorro', 'F', 5, 'Disponível', 0, 0),
+(26, '2a19dedf673926436f99f7b55a2bf712.jpg', 'Beto Roda Dura', 'cachorro', 'M', 5, 'Disponível', 0, 0),
+(27, '06304314f0bec3e1b3284e935f7f05ab.jpg', 'Sabrina', 'cachorro', 'F', 3, 'Disponível', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -70,7 +100,12 @@ INSERT INTO `usuario` (`codigoUsuario`) VALUES
 (2),
 (3),
 (4),
-(5);
+(5),
+(6),
+(7),
+(8),
+(9),
+(10);
 
 -- --------------------------------------------------------
 
@@ -93,7 +128,8 @@ CREATE TABLE `usuariopf` (
 INSERT INTO `usuariopf` (`cpf`, `nome`, `email`, `senha`, `idUsuario`) VALUES
 ('05780105693', 'Anderson Teixeira Leal', 'andersonpains@yahoo.com.br', 'macaquinho1984', 1),
 ('32580153682', 'José das Couves', 'jose.couves@hotmail.com', 'legumesaboros15', 4),
-('95732105693', 'Barrigudinha Celeida Faminta', 'faminta.fc@hotmail.com', 'dindinha85', 5);
+('95732105693', 'Barrigudinha Celeida Faminta', 'faminta.fc@hotmail.com', 'dindinha85', 5),
+('03265478532', 'Juvenal Costa e Silva', 'j.costa@bol.com', '365214ci', 7);
 
 -- --------------------------------------------------------
 
@@ -115,18 +151,25 @@ CREATE TABLE `usuariopj` (
 
 INSERT INTO `usuariopj` (`cnpj`, `nome`, `email`, `senha`, `idUsuario`) VALUES
 ('20876447000136', 'Ong Amigo não tem PREÇO', 'amigocao@gmail.com', '12345', 2),
-('15876455022165', 'Ong Lar Doce Lar', 'lar.felicidade@gmail.com', 'bisca0215@#', 3);
+('15876455022165', 'Ong Lar Doce Lar', 'lar.felicidade@gmail.com', 'bisca0215@#', 3),
+('02154785632145', 'Abrigo São Lázaro', 's.lazaro@gmail.com', '123456#blu', 6);
 
 --
 -- Índices para tabelas despejadas
 --
 
 --
+-- Índices para tabela `adocao`
+--
+ALTER TABLE `adocao`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Índices para tabela `pet`
 --
 ALTER TABLE `pet`
   ADD PRIMARY KEY (`codigoPet`),
-  ADD KEY `idUsuario_fk` (`idUsuario`) USING BTREE;
+  ADD KEY `doador` (`doador`);
 
 --
 -- Índices para tabela `usuario`
@@ -155,16 +198,22 @@ ALTER TABLE `usuariopj`
 --
 
 --
+-- AUTO_INCREMENT de tabela `adocao`
+--
+ALTER TABLE `adocao`
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT de tabela `pet`
 --
 ALTER TABLE `pet`
-  MODIFY `codigoPet` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `codigoPet` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `codigoUsuario` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `codigoUsuario` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restrições para despejos de tabelas
@@ -174,7 +223,7 @@ ALTER TABLE `usuario`
 -- Limitadores para a tabela `pet`
 --
 ALTER TABLE `pet`
-  ADD CONSTRAINT `doador` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`codigoUsuario`) ON UPDATE NO ACTION;
+  ADD CONSTRAINT `doador_Fk` FOREIGN KEY (`doador`) REFERENCES `usuario` (`codigoUsuario`);
 
 --
 -- Limitadores para a tabela `usuariopf`

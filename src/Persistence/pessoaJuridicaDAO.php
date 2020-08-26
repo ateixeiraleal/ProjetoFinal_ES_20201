@@ -18,7 +18,7 @@ class PessoaJuridicaDAO{
 		if($conn->query($sql) == true){
 			echo "Cliente cadastrado com sucesso!";
 		}else {
-			echo "Erro no cadastro! <br>" .$conn->error_log(message);
+			echo "Erro no cadastro! <br>" .$conn->error;
 		}
 	}
 
