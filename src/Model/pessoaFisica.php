@@ -5,6 +5,7 @@ class PessoaFisica{
 	private $email;
 	private $senha;
 	private $idUsuario;
+	private $adocao;
 
 	function __construct($cpf, $nome, $email, $senha, $idUsuario){ 
 		$this->cpf = $cpf;
@@ -12,6 +13,7 @@ class PessoaFisica{
 		$this->email = $email;
 		$this->senha = $senha;
 		$this->idUsuario = $idUsuario;
+		$this->adocao = null;
 	}
 
 	function getCpf(){
@@ -32,6 +34,10 @@ class PessoaFisica{
 
 	function getIdUsuario(){
 		return $this->idUsuario;
+	}
+
+	function getAdocao(){
+		return $this->adocao;
 	}
 }
 

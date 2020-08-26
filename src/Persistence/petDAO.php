@@ -32,7 +32,7 @@ class PetDAO{
 		return $resultado;
 	}
 
-	// exibe os dados de uma pet específico.
+	// exibe os dados de um pet específico.
 	function consultarPETcodigo($codigo, $conn){
 		$sql = "SELECT * FROM pet WHERE codigoPet=".$codigo;
 		$resultado = $conn->query($sql); //executa o comando no BD.

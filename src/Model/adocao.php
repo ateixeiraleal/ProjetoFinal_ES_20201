@@ -7,7 +7,7 @@ class Adocao{
     private $doador;
     private $adotante;
 
-    function __constructAdocao($pet, $doador, $adotante) {
+    function __construct($pet, $doador, $adotante) {
         $this->data = md5(time());
         $this->pet = $pet;
         $this->doador = $doador;
@@ -26,7 +26,7 @@ class Adocao{
         return $this->pet;
     }
 
-    function getDoador()) {
+    function getDoador() {
         return $this->doador;
     }
 

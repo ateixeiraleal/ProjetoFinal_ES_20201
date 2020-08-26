@@ -7,12 +7,13 @@ class PessoaFisicaDAO{
 	function salvar($usuario, $conn){
 
 		// inserção dos dados no BD.
-		$sql = "INSERT INTO usuariopf(cpf, nome, email, senha, idUsuario) VALUES ('".
+		$sql = "INSERT INTO usuariopf(cpf, nome, email, senha, idUsuario, adocao) VALUES ('".
 			$usuario->getCpf()."','".
 			$usuario->getNome()."','".
 			$usuario->getEmail()."','".
 			$usuario->getSenha()."',".
-			$usuario->getIdUsuario().")";
+			$usuario->getIdUsuario()."',".
+			$usuario->getAdocao().")";
 
 		// manda a string 'comando sql' para o BD.
 		if($conn->query($sql) == true){
@@ -20,6 +21,12 @@ class PessoaFisicaDAO{
 		}else {
 			echo "Erro no cadastro! <br>" .$conn->error;
 		}
+	}
+
+	function consultarPFs($conn){
+		$sql = "SELECT * FROM usuariopf";
+		$resultado = $conn->query($sql); //executa o comando no BD.
+		return $resultado;
 	}
 }
 

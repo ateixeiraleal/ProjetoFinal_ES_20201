@@ -16,7 +16,6 @@
 	// instanciando um usuario com os valores recebidos do formulário.
 	$usuario = new PessoaFisica($cpf, $nome, $email, $senha, $idUsuario);
 
-	// 
 	$usuariodao = new PessoaFisicaDAO();
 	$usuariodao->salvar($usuario, $conexao);
 

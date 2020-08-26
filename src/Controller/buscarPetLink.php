@@ -23,31 +23,40 @@ include_once '..\Persistence\petDAO.php';
 		    </head>
 		    <body>
 			    <div class='fundoTela'>
-		            <h2 class='titulo'>MÓDULO DE CONSULTAS</h2>
-		            <h2 class='subtitulo'>".$registro['nome']."</h2>
-				    <table>
+					<h2 class='titulo'>MÓDULO DE CONSULTAS</h2>
+					<h2 class='subtitulo'>".$registro['nome']."</h2>
+					<table>
 						<tr>
-						    <th>FOTO</th>
-						    <th>INFORMAÇÕES</th>
-						    <th>DOADOR</th>
-						    <th>CONTATOS</th>
+							<th>FOTO</th>
+							<th>INFORMAÇÕES</th>
+							<th>DOADOR</th>
+							<th>CONTATOS</th>
 						</tr>
 						<tr>
-			    			<td>
-			    				<img src='".$diretorio."".$registro['imagem']."' width='200' height='200'> 
-			    			</td>
-			    			<td>
-			    				NOME: ".$registro['tipo']."<br>
+							<td>
+								<img src='".$diretorio."".$registro['imagem']."' width='200' height='200'> 
+							</td>
+							<td>
+								NOME: ".$registro['tipo']."<br>
 								SEXO: ".$registro['sexo']."
-			    			</td>
-			    			<td></td>
-			    			<td></td>
-			    		</tr>
-			    		<tr>
-				    		<td><a href='alterarPet.php?id=".$registro['codigoPet']."'><button class='btnSubmit'>ALTERAR</button></a></td>
-				    		<td><a href='confirmarExclusao.php?id=".$registro['codigoPet']."'><button class='btnSubmit'>EXCLUIR</button></a></td>
-				    		<td><a href='url'><button class='btnSubmit'>ADOTAR</button></a></td>
-				    		<td><a href='url'><button class='btnSubmit'>APADRINHAR</button></a></td>
+							</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><a href='alterarPet.php?id=".$registro['codigoPet']."'>
+								<button class='btnSubmit'>ALTERAR</button></a>
+							</td>
+							<td><a href='confirmarExclusao.php?id=".$registro['codigoPet']."'>
+								<button class='btnSubmit'>EXCLUIR</button></a>
+							</td>
+							<td><form action='cadastrarAdocao.php' method='POST' name='f1'>
+								<input type='text' name='P' value='".$registro['codigoPet']."' hidden>
+								<input type='text' name='D' value='".$registro['doador']."' hidden>
+								Código Adotante: <input type='text' name='A' maxlength='2' size='3' required>
+								<input type='submit' name='LGform1' class='btnSubmit' value='ADOTAR'>
+							</td></form>
+							<td><a href='url'><button class='btnSubmit'>APADRINHAR</button></a></td>
 						</tr>
 					</table>
 				</div>
