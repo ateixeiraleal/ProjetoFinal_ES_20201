@@ -28,6 +28,13 @@ class PessoaFisicaDAO{
 		$resultado = $conn->query($sql); //executa o comando no BD.
 		return $resultado;
 	}
+
+	// exibe os dados de uma PF específica.
+	function consultarPFcodigo($idUsuario, $conn){
+		$sql = "SELECT * FROM usuariopf WHERE idUsuario=".$idUsuario;
+		$resultado = $conn->query($sql); //executa o comando no BD.
+		return $resultado;
+	}
 }
 
 ?>

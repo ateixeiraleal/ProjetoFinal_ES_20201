@@ -42,10 +42,10 @@ include_once '..\Persistence\petDAO.php';
 									<a href='buscarPetLink.php?id=".$registro['codigoPet']."'>
 										<img id='img_icon' alt='Exibir' src='..\img\icons\icon_view.png'>	
 									</a>
-									<a href='alterarPet.php?id=".$registro['codigoPet']."'>
+									<a href='confirmarAlteracaoPet.php?id=".$registro['codigoPet']."'>
 										<img id='img_icon' alt='Alterar' src='..\img\icons\icon_edit.png'>
 									</a>
-									<a href='confirmarExclusao.php?id=".$registro['codigoPet']."'>
+									<a href='confirmarExclusaoPet.php?id=".$registro['codigoPet']."'>
 										<img id='img_icon' alt='Excluir' src='..\img\icons\icon_delete.png'>
 									</a>
 								</td>

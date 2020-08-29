@@ -30,7 +30,7 @@ class PessoaJuridicaDAO{
 
 	// exibe os dados de uma ONG específica.
 	function consultarPJcodigo($idUsuario, $conn){
-		$sql = "SELECT cnpj, nome, email FROM usuariopj WHERE idUsuario=".$idUsuario;
+		$sql = "SELECT * FROM usuariopj WHERE idUsuario=".$idUsuario;
 		$resultado = $conn->query($sql); //executa o comando no BD.
 		return $resultado;
 	}

@@ -42,8 +42,8 @@ if($resultado->num_rows > 0){
                                 Nome: ".$registro['nome']." <br><br>
                                 Espécie ".$registro['tipo']." <br><br>
                                 Sexo: ".$registro['sexo']." <br><br>
-                                <a style='text-decoration:none' class='btnSubmit' href='excluirPet.php?id=".$codigoPet."'>CONFIRMAR</a>
-                                <a style='text-decoration:none' class='btnCancelar' href='consultarPets.php' target='home_iframe'>CANCELAR</a> <br><br>
+                                <a class='btnSubmit' href='excluirPet.php?id=".$codigoPet."'>CONFIRMAR</a>
+                                <a class='btnCancelar' href='consultarPets.php' target='home_iframe'>CANCELAR</a> <br><br>
                             </td>
                         </tr>
                     </table>

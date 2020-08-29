@@ -46,10 +46,10 @@ include_once '..\Persistence\adocaoDAO.php';
 									<a href='buscarAdocaoLink.php?id=".$registro['id']."'>
 										<img id='img_icon' alt='Exibir' src='..\img\icons\icon_view.png'>	
 									</a>
-									<a href='alterarAdocao.php?id=".$registro['id']."'>
+									<a href='confirmarAlteracaoAdocao.php?id=".$registro['id']."'>
 										<img id='img_icon' alt='Alterar' src='..\img\icons\icon_edit.png'>
 									</a>
-									<a href='confirmarExclusao.php?id=".$registro['id']."'>
+									<a href='confirmarExclusaoAdocao.php?id=".$registro['id']."'>
 										<img id='img_icon' alt='Excluir' src='..\img\icons\icon_delete.png'>
 									</a>
 								</td>

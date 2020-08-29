@@ -144,6 +144,19 @@ h6{
     text-decoration: none;
 }
 
+.btnConfirmar{
+    width: 200px;
+    border-radius: 1rem;
+    padding: 1.5%;
+    color: #ffffff;
+    background-color: #FF0000;
+    border: none;
+    cursor: pointer;
+    margin-right: 6%;
+    margin-top: 4%;
+    text-decoration: none;
+}
+
 .alinhamentoTexto{
     margin-top: -10%;
     margin-bottom: -9%;

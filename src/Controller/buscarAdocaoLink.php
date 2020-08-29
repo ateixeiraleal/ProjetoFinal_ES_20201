@@ -41,30 +41,42 @@ include_once '..\Persistence\pessoaJuridicaDAO.php';
                                 if($r1->num_rows > 0){
                                     $diretorio = substr("..\img\pets\#", 0, -1);
                                     $registroPet = $r1->fetch_assoc();
-                                    echo "
+									echo "
 								        <img src='".$diretorio."".$registroPet['imagem']."' width='200' height='200'><br>
-                                        NOME: ".$registroPet['nome']."<br>
+										<u><strong>ID: ".$registroPet['codigoPet']."</strong></u><br><br>
+										NOME: ".$registroPet['nome']."<br>
                                         Espécie: ".$registroPet['tipo']."<br>
 								        SEXO: ".$registroPet['sexo']."";
                                 } echo "
                             </td>
                             <td>";
-                            $doador= new PessoaJuridicaDAO();
-                            $r2 = $doador->consultarPJcodigo($registro['doador'], $conexao);
-                            if($r2->num_rows > 0){
-                                $registroPJ = $r2->fetch_assoc();
-                                echo "
-                                    CNPJ: ".$registroPJ['cnpj']."<br>
-                                    NOME: ".$registroPJ['nome']."<br>
-                                    SEXO: ".$registroPJ['email']."";
-                            } echo "
+								$doador= new PessoaJuridicaDAO();
+								$r2 = $doador->consultarPJcodigo($registro['doador'], $conexao);
+								if($r2->num_rows > 0){
+									$registroPJ = $r2->fetch_assoc();
+									echo "
+										<u><strong>ID: ".$registroPJ['idUsuario']."</strong></u><br><br>
+										CNPJ: ".$registroPJ['cnpj']."<br>
+										NOME: ".$registroPJ['nome']."<br>
+										E-MAIL: ".$registroPJ['email']."";
+								} echo "
                             </td>
-                            <td>" .$registro['adotante']. "
+							<td>";
+								$adotante= new PessoaFisicaDAO();
+								$r3 = $adotante->consultarPFcodigo($registro['adotante'], $conexao);
+								if($r3->num_rows > 0){
+									$registroPF = $r3->fetch_assoc();
+									echo "
+										<u><strong>ID: ".$registroPF['idUsuario']."</strong></u><br><br>
+										CPF: ".$registroPF['cpf']."<br>
+										NOME: ".$registroPF['nome']."<br>
+										E-MAIL: ".$registroPF['email']."";
+								} echo "
                             </td>
 						</tr>
                         <tr>
                             <td></td>
-							<td><a href='alterarAdocao.php?id=".$registro['id']."'>
+							<td><a href='confirmarAlteracaoAdocao.php?id=".$registro['id']."'>
 								<button class='btnSubmit'>ALTERAR</button></a>
 							</td>
 							<td><a href='confirmarExclusaoAdocao.php?id=".$registro['id']."'>

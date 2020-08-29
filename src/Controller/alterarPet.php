@@ -3,70 +3,42 @@ include_once '..\Persistence\connection.php';
 include_once '..\Model\pet.php';
 include_once '..\Persistence\petDAO.php';
 
-$codigoPet = filter_input(INPUT_GET,'id', FILTER_SANITIZE_NUMBER_INT);
+	// verifica se houve upload de arquivo.
+	if(empty($_FILES['cImagem'])){
+		// pega os 4 últimos caracteres do nome do arquivo '.extensao' e já converte para minúsculo.
+		$extensao = strtolower(substr($_FILES['cImagem']['name'], -4));
+		// cria um nome pela data do sistema criptografada. Ideal para não haver nomes de arquivos repetidos.
+		if(substr($extensao, -4, 1) == ".");
+		else $extensao = ".".$extensao;
+		$fileName = md5(time()).$extensao;
+		$diretorio = substr("..\img\pets\#", 0, -1);
+		// acessa o local temporario do arquivo e enviar para o novo local e já com o novo nome.
+        move_uploaded_file($_FILES['cImagem']['tmp_name'], $diretorio.$fileName);
+    }else{
+        // pegando os dados do formulário.
+        $fileName  = $_POST['cCodigoImagem'];
+    }
+    $codigo = $_POST['cCodigoPet'];
+    $nome = $_POST['cNome'];
+    $tipo = $_POST['cTipo'];
+    $sexo = $_POST['cSexo'];
+    $doador = $_POST['cDoador'];
 
-// instanciando uma conexão e retornando os dados desta conexão.
-$conexao = new Connection();
-$conexao = $conexao->getConnection();
+    // instanciando uma conexão e retornando os dados desta conexão.
+    $conexao = new Connection();
+    $conexao = $conexao->getConnection();
 
-// criando a classe que fará as operações no BD.
-$petdao = new PetDAO();
-$resultado = $petdao->consultarPETcodigo($codigoPet, $conexao);
+    // instanciando um pet com os valores recebidos do formulário.
+    $pet = new Pet($fileName, $nome, $tipo, $sexo, $doador);
 
-// se a quantidade de linhas for maior que zero há dados a serem processados.
-if($resultado->num_rows > 0){
-    $diretorio = substr("..\img\pets\#", 0, -1);
-    $registro = $resultado->fetch_assoc();
-    echo "<html>
-        <head>
-            <link href='..\CSS\style.css' rel='stylesheet' type='text/css'/>
-            <title>Pet For Friend</title>
-        </head>
-        <body>
-            <div class='fundoTela'>
-                <h2 class='titulo'>MÓDULO DE EDIÇÃO</h2>
-                <h2 class='subtitulo'>".$registro['nome']."</h2>
-                <form action='..\Controller\confirmarAlterarPet.php' method='POST' name='f1' autocomplete='off' enctype='multipart/form-data'>
-                    <table>
-                        <tr>
-                            <th>Foto</th>
-                            <th>Dados</th>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src='".$diretorio."".$registro['imagem']."' width='200' height='200'><br>
-                                <input type='text' name='cCodigoImagem' value='".$registro['imagem']."' hidden>
-                            </td>
-                            <td>
-                                Cod. PET: ´".$registro['codigoPet']."´ | 
-                                <input type='text' name='cCodigoPet' maxlength='4' size='5' value='".$registro['codigoPet']."' hidden>
-                                Cod. DOADOR: ´".$registro['doador']."´
-                                <input type='text' name='cDoador' maxlength='4' size='5' value='".$registro['doador']."' hidden><br><br><br>
-                                Foto: <input type='file' name='cImagem'><br><br>
-                                Nome: <input type='text' name='cNome' value='".$registro['nome']."' maxlength='45' size='50'><br><br>";
-                                if($registro['tipo'] === 'cachorro'){
-                                    echo "Espécie: <input type='radio' name='cTipo' value='cachorro' checked> Cachorro
-                                    <input type='radio' name='cTipo' value='gato'> Gato <br><br>";
-                                }else {
-                                    echo "Espécie: <input type='radio' name='cTipo' value='cachorro'> Cachorro
-                                    <input type='radio' name='cTipo' value='gato' checked> Gato <br><br>";
-                                }
-                                if($registro['sexo'] === 'M'){
-                                    echo "Sexo: <input type='radio' name='cSexo' value='M' checked> Macho
-                                    <input type='radio' name='cSexo' value='F'> Fêmea <br>";
-                                }else {
-                                    echo "Sexo: <input type='radio' name='cSexo' value='M'> Macho
-                                    <input type='radio' name='cSexo' value='F' checked> Fêmea <br>";
-                                }echo "
-                                <input type='submit' name='LGform1' class='btnSubmit' value='CONFIRMAR'>
-                                <a class='btnCancelar' href='consultarPets.php' target='home_iframe'>CANCELAR</a> <br><br>
-                            </td>
-                        </tr>
-                    </table>
-                </form>
-            </div>
-        </body>
-    </html>";
-}else echo "Não existem pets cadastrados!";
+    // instancia novo pet e chama a função que irá alterar os dados do pet.
+    $petdao = new PetDAO();
+    $resultado = $petdao->alterarPet($codigo, $pet, $conexao);
+
+    if ($resultado == TRUE) {
+		echo "Registro alterado com sucesso!";
+	} else {
+		echo "Erro ao alterar registro: " . $conexao->error;
+	}
 
 ?> 
