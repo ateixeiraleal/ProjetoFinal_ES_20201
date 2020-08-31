@@ -35,7 +35,13 @@ include_once '..\Persistence\petDAO.php';
 
 		// instancia novo pet e chama a função que irá adicionar os dados do pet.
 		$petdao = new PetDAO();
-		$petdao->salvar($pet, $conexao);
+		$resultado = $petdao->salvar($pet, $conexao);
+
+		if($resultado == true){
+			echo "Pet cadastrado com sucesso!";
+		}else {
+			echo "Erro no cadastro! <br>" .$conn->error;
+		}
 	}
 
 ?> 

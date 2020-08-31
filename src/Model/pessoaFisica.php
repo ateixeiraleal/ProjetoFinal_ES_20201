@@ -1,44 +1,22 @@
 <?php
-class PessoaFisica{
-	private $cpf;
-	private $nome;
-	private $email;
-	private $senha;
-	private $idUsuario;
-	private $adocao;
 
-	function __construct($cpf, $nome, $email, $senha, $idUsuario){ 
-		$this->cpf = $cpf;
-		$this->nome = $nome;
-		$this->email = $email;
-		$this->senha = $senha;
-		$this->idUsuario = $idUsuario;
-		$this->adocao = null;
-	}
+require_once 'usuario.php';
 
-	function getCpf(){
-		return $this->cpf;
-	}
+class PessoaFisica extends Usuario{
+    private $cpf;
+    private $adocao;
 
-	function getNome(){
-		return $this->nome;
-	}
+    function __construct($cpf, $nome, $email, $senha, $idUsuario){
+        parent::__construct ($nome, $email, $senha, $idUsuario);
+        $this->cpf = $cpf;
+        $this->adocao = null;
+    }
 
-	function getEmail(){
-		return $this->email;
-	}
+    function getCpf(){
+        return $this->cpf;
+    }
 
-	function getSenha(){
-		return $this->senha;
-	}
-
-	function getIdUsuario(){
-		return $this->idUsuario;
-	}
-
-	function getAdocao(){
-		return $this->adocao;
-	}
+    function getAdocao(){
+        return $this->adocao;
+    }
 }
-
-?>

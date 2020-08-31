@@ -17,13 +17,8 @@ class PetDAO{
 			$pet->getAdotante()."','".
 			$pet->getPadrinho()."'
 		)";
-
-		// manda a string 'comando sql' para o BD.
-		if($conn->query($sql) == true){
-			echo "Pet cadastrado com sucesso!";
-		}else {
-			echo "Erro no cadastro! <br>" .$conn->error;
-		}
+		$resultado = $conn->query($sql); //executa o comando no BD.
+		return $resultado;
 	}
 
 	function consultarPets($conn){

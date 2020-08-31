@@ -18,6 +18,12 @@
 
 	// 
 	$usuariodao = new PessoaJuridicaDAO();
-	$usuariodao->salvar($usuario, $conexao);
+	$resultado = $usuariodao->salvar($usuario, $conexao);
+
+	if($resultado == true){
+            echo "Cliente cadastrado com sucesso!";
+	}else {
+            echo "Erro no cadastro! <br>" .$conexao->error;
+	}
 
 ?>
