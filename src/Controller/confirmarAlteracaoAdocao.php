@@ -13,7 +13,7 @@ include_once '..\Persistence\pessoaJuridicaDAO.php';
 
 	// criando a classe que fará as operações no BD.
 	$adocaodao= new AdocaoDAO();
-	$resultado = $adocaodao->buscarAdocaoLink($id, $conexao);
+	$resultado = $adocaodao->buscarCodigo($id, $conexao);
 
 	// se a quantidade de linhas for maior que zero há dados a serem processados.
 	if($resultado->num_rows > 0){
@@ -55,7 +55,7 @@ include_once '..\Persistence\pessoaJuridicaDAO.php';
 								</td>
 								<td>";
 									$doador= new PessoaJuridicaDAO();
-									$r2 = $doador->consultarPJcodigo($registro['doador'], $conexao);
+									$r2 = $doador->consultarCodigo($registro['doador'], $conexao);
 									if($r2->num_rows > 0){
 										$registroPJ = $r2->fetch_assoc();
 										echo "
@@ -67,7 +67,7 @@ include_once '..\Persistence\pessoaJuridicaDAO.php';
 								</td>
 								<td>";
 									$adotante= new PessoaFisicaDAO();
-									$r3 = $adotante->consultarPFcodigo($registro['adotante'], $conexao);
+									$r3 = $adotante->consultarCodigo($registro['adotante'], $conexao);
 									if($r3->num_rows > 0){
 										$registroPF = $r3->fetch_assoc();
 										echo "
@@ -81,7 +81,7 @@ include_once '..\Persistence\pessoaJuridicaDAO.php';
 							</tr>
 							<tr>
 								<td></td>
-								<td><a class='btnCancelar' href='consultarAdocoes.php' target='home_iframe'>CANCELAR</a></td>
+								<td><a class='btnCancelar' href='consultar.php' target='home_iframe'>CANCELAR</a></td>
 								<td><input type='submit' name='LGform1' class='btnSubmit' value='CONFIRMAR'></td>
 							</tr>	
 						</table>

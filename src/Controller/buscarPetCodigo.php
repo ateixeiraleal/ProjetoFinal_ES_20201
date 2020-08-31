@@ -50,7 +50,7 @@ include_once '..\Persistence\pessoaJuridicaDAO.php';
 							</td>
 							<td>";
 							$doador= new PessoaJuridicaDAO();
-							$r2 = $doador->consultarPJcodigo($registro['doador'], $conexao);
+							$r2 = $doador->consultarCodigo($registro['doador'], $conexao);
 							if($r2->num_rows > 0){
 								$registroPJ = $r2->fetch_assoc();
 								echo "
@@ -62,7 +62,7 @@ include_once '..\Persistence\pessoaJuridicaDAO.php';
 							</td>
 							<td>";
 							$adotante= new PessoaFisicaDAO();
-							$r3 = $adotante->consultarPFcodigo($registro['adotante'], $conexao);
+							$r3 = $adotante->consultarCodigo($registro['adotante'], $conexao);
 							if($r3->num_rows > 0){
 								$registroPF = $r3->fetch_assoc();
 								echo "

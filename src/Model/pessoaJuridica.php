@@ -1,38 +1,16 @@
 <?php
-class PessoaJuridica{
-	private $cnpj;
-	private $nome;
-	private $email;
-	private $senha;
-	private $idUsuario;
 
-	function __construct($cnpj, $nome, $email, $senha, $idUsuario){
-		$this->cnpj = $cnpj;
-		$this->nome = $nome;
-		$this->email = $email;
-		$this->senha = $senha;
-		$this->idUsuario = $idUsuario;
-	}
+require_once 'usuario.php';
 
-	function getCnpj(){
-		return $this->cnpj;
-	}
+class PessoaJuridica extends Usuario{
+    private $cnpj;
 
-	function getNome(){
-		return $this->nome;
-	}
+    function __construct($cnpj, $nome, $email, $senha, $idUsuario){
+        parent::__construct($nome, $email, $senha, $idUsuario);
+        $this->cnpj = $cnpj;
+    }
 
-	function getEmail(){
-		return $this->email;
-	}
-
-	function getSenha(){
-		return $this->senha;
-	}
-
-	function getIdUsuario(){
-		return $this->idUsuario;
-	}
+    function getCnpj(){
+        return $this->cnpj;
+    }
 }
-
-?>

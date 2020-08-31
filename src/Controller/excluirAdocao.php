@@ -12,7 +12,7 @@ include_once '..\Persistence\adocaoDAO.php';
 
 	// criando a classe que fará as operações no BD.
 	$adocaodao = new AdocaoDAO();
-	$resultado = $adocaodao->excluirAdocao($adocao, $pet, $adotante, $conexao);
+	$resultado = $adocaodao->excluir($adocao, $pet, $adotante, $conexao);
 	
 	if ($resultado == TRUE) {
 		echo "Registro deletado com sucesso!";

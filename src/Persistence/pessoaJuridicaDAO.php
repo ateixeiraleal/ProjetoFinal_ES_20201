@@ -1,39 +1,38 @@
 <?php
-class PessoaJuridicaDAO{
 
-	function __construct(){}
+include_once 'usuarioDAO.php';
 
-	// para salvar deve ser passado como parâmentro um usuario e uma conexão.
-	function salvar($usuario, $conn){
+final class PessoaJuridicaDAO extends UsuarioDAO{
 
-		// inserção dos dados no BD.
-		$sql = "INSERT INTO usuariopj(cnpj, nome, email, senha, idUsuario) VALUES ('".
-			$usuario->getCnpj()."','".
-			$usuario->getNome()."','".
-			$usuario->getEmail()."','".
-			$usuario->getSenha()."',".
-			$usuario->getIdUsuario().")";
+    function __construct(){
+        parent::__construct();
+    }
 
-		// manda a string 'comando sql' para o BD.
-		if($conn->query($sql) == true){
-			echo "Cliente cadastrado com sucesso!";
-		}else {
-			echo "Erro no cadastro! <br>" .$conn->error;
-		}
-	}
+    // para salvar deve ser passado como parâmentro um usuario e uma conexão.
+    function salvar($usuario, $conn){
 
-	function consultarPJs($conn){
-		$sql = "SELECT cnpj, nome, email, idUsuario FROM usuariopj";
-		$resultado = $conn->query($sql); //executa o comando no BD.
-		return $resultado;
-	}
+        // inserção dos dados no BD.
+        $sql = "INSERT INTO usuariopj(cnpj, nome, email, senha, idUsuario) VALUES ('".
+        $usuario->getCnpj()."','".
+        $usuario->getNome()."','".
+        $usuario->getEmail()."','".
+        $usuario->getSenha()."',".
+        $usuario->getIdUsuario().")";
 
-	// exibe os dados de uma ONG específica.
-	function consultarPJcodigo($idUsuario, $conn){
-		$sql = "SELECT * FROM usuariopj WHERE idUsuario=".$idUsuario;
-		$resultado = $conn->query($sql); //executa o comando no BD.
-		return $resultado;
-	}
+        $resultado = $conn->query($sql); //executa o comando no BD.
+        return $resultado;
+    }
+
+    function consultar($conn){
+        $sql = "SELECT cnpj, nome, email, idUsuario FROM usuariopj";
+        $resultado = $conn->query($sql); //executa o comando no BD.
+        return $resultado;
+    }
+
+    // exibe os dados de uma ONG específica.
+    function consultarCodigo($idUsuario, $conn){
+        $sql = "SELECT * FROM usuariopj WHERE idUsuario=".$idUsuario;
+        $resultado = $conn->query($sql); //executa o comando no BD.
+        return $resultado;
+    }
 }
-	
-?>

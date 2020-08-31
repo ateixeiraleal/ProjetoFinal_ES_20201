@@ -15,6 +15,6 @@ include_once '..\Persistence\adocaoDAO.php';
 	$adocao = new Adocao($codigoPet, $codigoDoador, $codigoAdotante);
 
 	$adocaodao = new AdocaoDAO();
-	$adocaodao->cadastrarAdocao($adocao, $conexao);
+	$adocaodao->cadastrar($adocao, $conexao);
 
 ?> 

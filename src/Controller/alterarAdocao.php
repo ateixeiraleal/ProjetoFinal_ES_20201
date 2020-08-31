@@ -14,6 +14,6 @@ include_once '..\Persistence\adocaoDAO.php';
 
     // instancia nova adocao e chama a função que irá alterar os dados do pet.
     $adocaodao = new AdocaoDAO();
-    $resultado = $adocaodao->alterarAdocao($adocao, $oldPet, $oldAdotante, $newPet, $newAdotante, $conexao);
+    $resultado = $adocaodao->alterar($adocao, $oldPet, $oldAdotante, $newPet, $newAdotante, $conexao);
 
 ?> 

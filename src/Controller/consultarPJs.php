@@ -8,7 +8,7 @@ include_once '..\Persistence\pessoaJuridicaDAO.php';
 
 	// criando a classe que fará as operações no BD.
 	$usuariodao = new pessoaJuridicaDAO();
-	$resultado = $usuariodao->consultarPJs($conexao);
+	$resultado = $usuariodao->consultar($conexao);
 
 	// se a quantidade de linhas for maior que zero há dados a serem processados.
 	if($resultado->num_rows > 0){
